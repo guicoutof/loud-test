@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import './styles.css';
 
@@ -6,7 +7,7 @@ export interface Post {
     id: number;
     title: string;
     content: string;
-    opinion?: number;
+    upvotes_count?: number;
 
 }
 
@@ -18,8 +19,8 @@ const PostItem: React.FunctionComponent<PostProps> = ({ post }) => {
     return (
         <div id="post">
             <p className="title">{post.title}</p>
-            <p className="content">{post.content}</p>
-            <p>{post.opinion || 0} Like</p>
+            <p className="content"><ReactMarkdown source={post.content} /></p>
+            <p>{post.upvotes_count || 0} Like</p>
         </div>
     )
 }

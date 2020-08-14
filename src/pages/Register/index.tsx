@@ -1,18 +1,39 @@
 import React, { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import PageHeader from '../../components/PageHeader';
 import Input from '../../components/Inputs';
 
+import api from '../../services/api';
+
 import './styles.css'
 
 function Register () {
-    const [user, setUser] = React.useState('');
+    let history = useHistory();
+
+    const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [error, setError] = React.useState('');
+    const [msg, setMsg] = React.useState('');
     
-    function handleRegister(e: FormEvent){
+    async function handleRegister(e: FormEvent){
         e.preventDefault();
+
+        try{
+            await api.post('register',{
+                email,
+                username,
+                password
+             });
+             setMsg('Usuário criado com sucesso!');
+             setTimeout(() => {
+                 history.push('/');
+             }, 2000)
+        }catch(err){
+            setError('Problema ao criar o usuário!');
+        }
 
     }
 
@@ -23,13 +44,17 @@ function Register () {
                 <form onSubmit={handleRegister}>
                     <div className="header">
                         <span>Cadastrar</span>
+                        <p className="msg">{msg}</p>
+                        <p className="error">{error}</p>
                     </div>
                     <div className="input-container">
                         <Input 
                             name="user" 
                             label="Nome de usuário" 
-                            value={user} 
-                            onChange={ e => setUser(e.target.value)} 
+                            minLength={ 3 }
+                            maxLength={ 30 } 
+                            value={username} 
+                            onChange={ e => setUsername(e.target.value)} 
                         />
                         <Input 
                             name="email" 
@@ -40,7 +65,9 @@ function Register () {
                         <Input 
                             name="password" 
                             label="Senha" 
-                            type="password" 
+                            type="password"
+                            minLength={ 8 }
+                            maxLength={ 30 } 
                             value={password} 
                             onChange={ e => setPassword(e.target.value)} 
                         />

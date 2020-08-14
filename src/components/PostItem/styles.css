@@ -1,10 +1,10 @@
 #post {
-    height: 21rem;
     padding: 0.8rem 2.4rem;
     border-radius: 0.8rem;
     background: var(--color-primary-darker);
     color: var(--color-title-in-primary);
     margin-bottom: 1.6rem;
+    /* min-width: 38rem; */
 
     display: flex;
     flex-direction: column;
@@ -12,12 +12,17 @@
 }
 
 #post .title {
+    margin: 0.8rem;
     font: 700 2.4rem Roboto;
     color: var(--color-title-in-primary);
 }
 
 #post .content {
+    margin-bottom: 1.6rem;
     font: 500 1.8rem Ubuntu;
     color: var(--color-text-in-primary);
     text-align: justify;
+}
+#post .content img{
+    width: 100%;
 }

@@ -1,35 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import PageHeader from '../../components/PageHeader';
 import Input from '../../components/Inputs';
 import PostItem, { Post } from '../../components/PostItem';
 
+import api from '../../services/api';
+import { logout } from '../../services/auth';
+
 import './styles.css'
 
 function PostList () {
     const [search, setSearch] = React.useState('');
+    const [postList,setPostList] = React.useState([]);
 
-    const postList = [{
-        id:1,
-        title:"Título",
-        content:"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo veritatis illo eos placeat distinctio soluta, accusantium, ea alias ducimus, assumenda totam eveniet! Quaerat voluptate odit vero maiores veritatis accusantium commodi."
-    },{
-        id:2,
-        title:"Título",
-        content:"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo veritatis illo eos placeat distinctio soluta, accusantium, ea alias ducimus, assumenda totam eveniet! Quaerat voluptate odit vero maiores veritatis accusantium commodi."
-    },{
-        id:3,
-        title:"Título",
-        content:"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo veritatis illo eos placeat distinctio soluta, accusantium, ea alias ducimus, assumenda totam eveniet! Quaerat voluptate odit vero maiores veritatis accusantium commodi."
-    }]
+    useEffect(() => {
+        async function getPostList(){
+            await api.get('opinions')
+                .then(response=>{
+                    setPostList(response.data.opinions);
+                });
+        }
+        getPostList();
+    },[])
+
+    function handleLogout() {
+        logout();
+    }
+    
     return(
         <div className="container" id="page-post-list">
             <header>
+                <button className="logout" onClick={handleLogout}>Sair</button>
                 <PageHeader title={"Platforma de opinião para a cidade de São Paulo"} />
                 <div className="filter-block">
                     <Input 
                         name={"filter"} 
-                        label={"Pesquisar"} 
+                        label={"Filtrar"} 
                         value={search} 
                         onChange={ e => setSearch(e.target.value)} 
                     />

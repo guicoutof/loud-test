@@ -5,10 +5,13 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    overflow-y: scroll;
 }
 
 #page-post-list header {
-    height: 30%;    
+    width: 90vw;
+    height: 22rem;    
     color: var(--color-text-in-primary);
 
     display: flex;
@@ -29,6 +32,25 @@
     padding: 1.6rem;
     background: var(--color-background);
     border-radius: 0.8rem; 
+    margin: 1.6rem 0;
+}
+
+#page-post-list header .logout {
+    width: 10rem;
+    height: 10rem;
+    margin: 0.8rem;
+    background: var(--color-primary);
+    color: var(--color-text-in-primary);
+    border: 2px solid var(--color-primary-darker);
+    border-radius: 0.6rem;
+    cursor: pointer;
+    font: 700 1.8rem Roboto;
+    align-self: flex-end;
+    
+    transition: background-color 0.2s;
+}
+#page-post-list header .logout:hover {
+    background-color: var(--color-primary-darker);
 }
 
 @media (min-width: 700px) {

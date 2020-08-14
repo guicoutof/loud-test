@@ -25,16 +25,33 @@
     justify-content: center;
   }
   
-  #page-register main .header{
-    font: 700 3.6rem Roboto;
-    color: var(--color-text-in-primary);
+  #page-register main .header {
     margin-bottom: 2.4rem;
-  
+
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
   
     width: 100%;
     padding-bottom: 1.6rem;
+  }
+
+  #page-register main .header span {
+    font: 700 3.6rem Roboto;
+    color: var(--color-text-in-primary);
+  }
+  
+  #page-register main .header .msg {
+    margin-top: 0.8rem;
+    font: 700 1.6rem Ubuntu;
+    color: lightblue;
+  }
+  
+  #page-register main .header .error {
+    margin-top: 0.8rem;
+    font: 700 1.6rem Ubuntu;
+    color: darkred;
   }
   
   #page-register main .buttons-container {
