@@ -61,7 +61,7 @@
   #page-register main .buttons-container .ok {
     width: 100%;
     height: 5.6rem;
-    background: var(--color-secundary);
+    background: var(--color-secondary);
     color: var(--color-text-in-primary);
     border: 0;
     border-radius: 0.8rem;
@@ -74,7 +74,7 @@
   }
   
   #page-register main .buttons-container .ok:hover {
-    background: var(--color-secundary-dark);
+    background: var(--color-secondary-dark);
   }
   
   #page-register main .buttons-container .register {

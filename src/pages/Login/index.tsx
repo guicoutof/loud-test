@@ -1,6 +1,5 @@
 import React, { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
 
 import PageHeader from '../../components/PageHeader';
 import Input from '../../components/Inputs';
@@ -12,8 +11,6 @@ import './styles.css';
 
 
 function Login() {
-    let history = useHistory();
-
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [error, setError] = React.useState('');

@@ -1,0 +1,24 @@
+.textarea-block {
+    width: 100%;
+}
+
+.textarea-block + .textarea-block {
+    margin-top: 1.4rem;
+}
+
+.textarea-block label {
+    font-size: 1.4rem;
+}
+
+.textarea-block textarea {
+    width: 100%;
+    height: 24rem;
+    min-height: 8rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background-color: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0;
+    resize: none;
+    font: 1.6rem Ubuntu;
+}
