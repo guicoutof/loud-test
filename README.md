@@ -1,5 +1,5 @@
 
-### Getting Started 🚀
+### Getting Started
 
 #### Cloning
 
@@ -12,8 +12,8 @@ $ cd loud-test
 ```
 
 #### Requirements
-* [Node.js][https://nodejs.org/en/]
-* [Yarn][https://yarnpkg.com] or [npm][https://www.npmjs.com]
+* [Node.js](https://nodejs.org/en/)
+* [Yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com)
 
 ##### Web
 
