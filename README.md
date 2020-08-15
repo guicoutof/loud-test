@@ -23,3 +23,14 @@ This project use third party dependencies that need to be installed, use that co
 $ yarn install
 ```
 
+#### Running
+
+To start the Web Server run the command
+
+```ps
+# Entering in web directory
+$ cd web
+
+# Run the web server
+$ yarn start
+```
